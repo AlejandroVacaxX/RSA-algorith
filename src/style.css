@@ -1,16 +1,159 @@
+/* style.css */
 
-    body {
-      font-family: sans-serif;
-      padding: 20px;
-    }
-    input, button {
-      padding: 6px;
-      margin: 5px 0;
-    }
-    #pasos, #cifrado, #descifrado {
-      margin-top: 15px;
-      padding: 10px;
-      border: 1px solid #ccc;
-      background: #f9f9f9;
-      white-space: pre-wrap;
-    }
+/* ================== Variables Globales ================== */
+:root {
+  --fondo-oscuro: #03141f;
+  --texto-claro: #e0e0e0;
+  --glass: rgba(255, 255, 255, 0.05);
+  --azul-claro: #3b82f6;
+  --azul-focus: #2563eb;
+  --verde-tech: #4ade80;
+  --gris-placeholder: #9ca3af;
+  --sombra-suave: 0 4px 30px rgba(0, 0, 0, 0.1);
+  --radio-borde: 8px;
+  --fuente-principal: 'Inter', 'Roboto', sans-serif;
+  --fuente-mono: 'Fira Code', monospace;
+}
+
+/* ================== Reset y cuerpo ================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+body {
+  font-family: var(--fuente-principal);
+  background-color: var(--fondo-oscuro);
+  color: var(--texto-claro);
+  padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ================== Título con degradado ================== */
+h1 {
+  font-size: 3rem;
+  background: linear-gradient(45deg, var(--azul-claro), #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+/* ================== Botones ================== */
+/* ================== Botones centrados y compactos ================== */
+button {
+  background-color: var(--glass);
+  color: var(--texto-claro);
+  border: 1px solid var(--azul-claro);
+  border-radius: var(--radio-borde);
+  padding: 0.75rem 0.1rem;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  box-shadow: var(--sombra-suave);
+  font-size: 1rem;
+  width: 320px;
+  height: 120px;
+  animation: pulse 2s infinite;
+
+  /* Centrar contenido dentro del botón */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Centrar el botón en su contenedor */
+  margin: 1rem auto;
+}
+button:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+button:active {
+  transform: scale(0.98);
+}
+
+/* ================== Inputs ================== */
+input[type="number"] {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--azul-claro);
+  border-radius: var(--radio-borde);
+  padding: 0.5rem 1rem;
+  color: var(--texto-claro);
+  font-family: var(--fuente-mono);
+  outline: none;
+  width: 100%;
+  max-width: 300px;
+
+  /* Centrar contenido dentro del botón */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Centrar el botón en su contenedor */
+  margin: 1rem auto;
+
+}
+input::placeholder {
+  color: var(--gris-placeholder);
+}
+input:focus {
+  outline: 2px solid var(--azul-focus);
+}
+
+/* ================== Contenedores y resultados ================== */
+#pasos, #cifrado, #descifrado {
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  border-radius: var(--radio-borde);
+  padding: 1rem;
+  box-shadow: var(--sombra-suave);
+  margin-top: 1rem;
+  font-family: var(--fuente-mono);
+  overflow-wrap: break-word;
+}
+
+#cifrado, #descifrado {
+  background-color: #1e1e1e;
+  color: var(--verde-tech);
+}
+
+/* ================== Separadores ================== */
+hr {
+  border: none;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+  margin: 2rem 0;
+}
+
+/* ================== Animaciones ================== */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(59, 130, 246, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.5);
+  }
+}
+
+/* ================== Hover 3D para tarjetas ================== */
+#pasos:hover, #cifrado:hover, #descifrado:hover {
+  transform-style: preserve-3d;
+  transform: rotateY(5deg);
+}
+
+/* ================== Responsive ================== */
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+
+  input[type="number"] {
+    width: 100%;
+  }
+
+  button {
+    width: 100%;
+  }
+
+}
