@@ -1,0 +1,16 @@
+
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    input, button {
+      padding: 6px;
+      margin: 5px 0;
+    }
+    #pasos, #cifrado, #descifrado {
+      margin-top: 15px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background: #f9f9f9;
+      white-space: pre-wrap;
+    }
